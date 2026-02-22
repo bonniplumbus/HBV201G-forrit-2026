@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane onContextMenuRequested="#onContextAnchor" prefHeight="200" prefWidth="320"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="vidmot.ValmyndirController">
+
+    <!-- ContextMenu er ekki property á AnchorPane og því þurfum við að setja ContextMenu
+    í breytu með fx:define
+    -->
+
+    <fx:define>
+        <ContextMenu fx:id="fxAnchorMenu">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#onHelpContext" text="onHelpContext"/>
+                <MenuItem mnemonicParsing="false" text="dummy"/>
+            </items>
+        </ContextMenu>
+    </fx:define>
+    <children>
+        <MenuBar prefHeight="49.0" prefWidth="320.0">
+            <!-- menus er eiginleiki/attribute á MenuBar hlut !-->
+            <menus>
+                <!-- Hér er fyrsti menu-inn -->
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onNew" text="New"/>
+                        <SeparatorMenuItem mnemonicParsing="false"/>
+                        <MenuItem mnemonicParsing="false" onAction="#onClose" text="Close"/>
+                        <Menu mnemonicParsing="false" text="Cascading">
+                            <items>
+                                <MenuItem mnemonicParsing="false" onAction="#onCascading" text="Action 1"/>
+                            </items>
+                        </Menu>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onDelete" text="Delete"/>
+                        <RadioMenuItem mnemonicParsing="false" text="Radio 1">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="Radio1og2"/>
+                            </toggleGroup>
+                        </RadioMenuItem>
+                        <RadioMenuItem mnemonicParsing="false" text="Radio 2" toggleGroup="$Radio1og2"/>
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onAbout" text="About"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TextField fx:id="fxTexti" onAction="#onEnter" layoutX="14.0" layoutY="100.0">
+            <contextMenu>
+                <ContextMenu>
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#onComplete" text="Complete"/>
+                        <MenuItem mnemonicParsing="false" onAction="#onTranslate" text="Translate"/>
+                    </items>
+                </ContextMenu>
+            </contextMenu>
+        </TextField>
+        <Label fx:id="fxValid" layoutX="14.0" layoutY="155.0" prefHeight="25.0" prefWidth="149.0"/>
+    </children>
+</AnchorPane>

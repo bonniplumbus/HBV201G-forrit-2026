@@ -42,7 +42,7 @@ public class DyrController {
         for(String heiti: dyrHeiti) {
             nyMynd(heiti);
         }
-        // binda dýramyndirnar við valið á comboboxinu
+        // hlustum á breytingu á valinu og uppfærum myndina af dýrinu
         fxDyr.getSelectionModel().selectedItemProperty()
                 .addListener((obs, gamla, nyja) -> {
             fxDyramynd.setImage(dyramyndir.get(nyja));

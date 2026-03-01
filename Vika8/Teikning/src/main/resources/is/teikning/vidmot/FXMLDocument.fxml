@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<Pane fx:id="fxPane" prefHeight="332.0" prefWidth="452.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="is.teikning.vidmot.TeiknaController">
+   <children>
+      <Canvas fx:id="fxMittCanvas" height="254.0"  width="152.0"  layoutX="271.0" layoutY="39.0"/>
+      <Rectangle fx:id="fxSvartur" height="43.0" x="10" y="10" width="50.0" />
+   </children>
+</Pane>
